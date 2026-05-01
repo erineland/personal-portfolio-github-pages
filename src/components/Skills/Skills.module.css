@@ -1,0 +1,73 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.group {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 28px;
+  transition: border-color 0.25s, box-shadow 0.25s;
+}
+
+.group:hover {
+  border-color: var(--border-pink);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+}
+
+.groupHeader {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.groupIcon {
+  font-size: 22px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--surface);
+  border-radius: 10px;
+  border: 1px solid var(--border);
+}
+
+.groupLabel {
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+
+.pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 6px 14px;
+  border-radius: 8px;
+  border: 1px solid rgba(var(--pill-color), 0.25);
+  background: color-mix(in srgb, var(--pill-color) 8%, transparent);
+  color: var(--text-muted);
+  cursor: default;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.pill:hover {
+  background: color-mix(in srgb, var(--pill-color) 18%, transparent);
+  color: var(--text);
+  border-color: color-mix(in srgb, var(--pill-color) 60%, transparent);
+}
+
+@media (max-width: 640px) {
+  .grid { grid-template-columns: 1fr; }
+}

@@ -1,0 +1,154 @@
+.section {
+  background: var(--surface);
+  position: relative;
+  overflow: hidden;
+}
+
+.section::before {
+  content: '';
+  position: absolute;
+  top: -200px;
+  right: -200px;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(147, 51, 234, 0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.header {
+  margin-bottom: 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 72px;
+  align-items: center;
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.text p {
+  font-size: 16px;
+  color: var(--text-muted);
+  line-height: 1.8;
+}
+
+.text strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.facts {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.fact {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.fact:hover {
+  border-color: var(--border-pink);
+  background: var(--card-hover);
+}
+
+.factIcon { font-size: 18px; flex-shrink: 0; }
+
+.factText {
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+/* Photo */
+.photoWrap {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.photoFrame {
+  position: relative;
+  width: 280px;
+  height: 340px;
+  border-radius: 18px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.photoGlow {
+  position: absolute;
+  inset: -20px;
+  background: radial-gradient(circle at 50% 60%, rgba(255, 45, 120, 0.3) 0%, transparent 70%);
+  z-index: 0;
+  filter: blur(20px);
+}
+
+.photo {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  filter: grayscale(20%) contrast(1.05);
+  transition: filter 0.4s;
+}
+
+.photoFrame:hover .photo {
+  filter: grayscale(0%) contrast(1.0);
+}
+
+.photoBorder {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  border-radius: 18px;
+  border: 1.5px solid rgba(255, 45, 120, 0.35);
+  pointer-events: none;
+}
+
+.photoDecor1 {
+  position: absolute;
+  top: -12px;
+  right: -12px;
+  width: 70px;
+  height: 70px;
+  border: 2px solid rgba(255, 45, 120, 0.25);
+  border-radius: 12px;
+  transform: rotate(15deg);
+}
+
+.photoDecor2 {
+  position: absolute;
+  bottom: -16px;
+  left: -16px;
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, var(--pink), var(--purple));
+  border-radius: 8px;
+  opacity: 0.5;
+  transform: rotate(-10deg);
+}
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+  .photoWrap { order: -1; }
+  .photoFrame { width: 220px; height: 270px; }
+}
