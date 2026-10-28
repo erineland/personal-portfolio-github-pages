@@ -3,12 +3,12 @@ import { motion, useInView } from 'framer-motion'
 import styles from './About.module.css'
 
 const FACTS = [
-  { icon: '🎓', text: 'BSc Computer Science, 1st Class — University of Manchester' },
-  { icon: '🍎', text: 'Senior Software Engineer (ICT4) at Apple · AOS Retail Engineering' },
+  { icon: '🔒', text: 'Least privilege first: read-only by default, writes go through a guard a human approves' },
+  { icon: '📨', text: 'Untrusted text is data, never instructions: messages and emails can\'t steer the agent' },
+  { icon: '🚪', text: 'Fail closed: if a guard can\'t understand a request, it asks rather than allows' },
+  { icon: '🔍', text: 'Small, boring, auditable: plain Python and the standard library where possible' },
+  { icon: '🎓', text: 'BSc Computer Science, 1st Class, University of Manchester' },
   { icon: '📍', text: 'Based in London, UK' },
-  { icon: '☁️', text: 'Full-stack across React, Node.js, Java Spring Boot & AWS' },
-  { icon: '🤖', text: 'Built an MCP Server for AI-assisted development workflows' },
-  { icon: '🚀', text: 'Shipped features generating millions in revenue on apple.com' },
 ]
 
 export default function About() {
@@ -37,22 +37,19 @@ export default function About() {
             transition={{ duration: 0.7, delay: 0.1 }}
           >
             <p>
-              I'm a <strong>Senior Software Engineer</strong> with 10+ years of experience building scalable
-              web applications used by millions — at <strong>Apple</strong>, <strong>Microsoft</strong> and
-              <strong> Booking.com</strong>. Driven by curiosity and a belief that great engineering should
-              make complex things feel effortless.
+              I'm a software engineer in London with ten years of shipping web products at scale:
+              <strong> Microsoft</strong>, <strong>Booking.com</strong>, <strong>Apple</strong>, and
+              now <strong>Feeld</strong>. Mostly <strong>TypeScript</strong>, React and Node.js, with
+              Java, AWS and CI along the way.
             </p>
             <p>
-              I specialise across the full stack in <strong>JavaScript/TypeScript</strong> and the
-              <strong> Java</strong> ecosystem — from React frontends and Node.js/Express APIs to
-              Java Spring Boot microservices and cloud infrastructure on AWS. I care deeply about
-              security, developer experience, and shipping things that directly move the needle.
+              These days most of my building happens around the code: I design AI agent systems that
+              do real work, safely. I run a personal <strong>Claude Code</strong> setup every day with
+              dozens of skills, my own <strong>MCP servers</strong>, hooks and scheduled jobs. It handles
+              mail, calendar, budgeting checks, smart home and admin, and it's built so that it
+              can't do the dangerous things by accident.
             </p>
-            <p>
-              Outside of work I explore the cutting edge of AI tooling — I've built MCP servers that
-              connect Claude to real engineering workflows, and I'm genuinely excited about where that
-              intersection of AI and software development goes next.
-            </p>
+            <p>How I like to build:</p>
 
             <div className={styles.facts}>
               {FACTS.map((f, i) => (

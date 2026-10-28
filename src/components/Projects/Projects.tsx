@@ -5,40 +5,52 @@ import styles from './Projects.module.css'
 
 const PROJECTS = [
   {
-    title: 'Apple Online Store',
-    emoji: '🍎',
+    title: 'claude-code-guardrails',
+    emoji: '🛡️',
     description:
-      'Engineering apple.com — one of the world\'s highest-traffic e-commerce platforms. Delivered new product launch experiences, internal SEO tooling, auth migrations, and shared Node.js platform modules adopted across Apple\'s AOS engineering teams.',
-    tech: ['React', 'TypeScript', 'Node.js', 'Express', 'Redis', 'Playwright', 'MCP'],
-    link: { label: 'Visit apple.com', href: 'https://apple.com', external: true },
-    github: null,
-    gradient: 'linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%)',
-    accentColor: '#00d4ff',
-    highlight: 'Apple · Jun 2021–Present',
+      'Fail-closed PreToolUse permission hooks for Claude Code, plus a width-aware status line. Pulled out of the agent setup I run every day.',
+    safety:
+      'Every write to money or mail becomes a plain-English permission prompt. Secrets stay out of the transcript. Input the guard can\'t parse still asks.',
+    tech: ['Claude Code', 'Hooks', 'Python', 'Bash'],
+    href: 'https://github.com/erineland/claude-code-guardrails',
+    gradient: 'linear-gradient(135deg, #2a0a1c 0%, #4a0f2e 50%, #ff2d78 140%)',
+    accentColor: '#ff2d78',
   },
   {
-    title: 'Free Taxi — Booking.com',
-    emoji: '✈️',
+    title: 'whatsapp-readonly-mcp',
+    emoji: '💬',
     description:
-      'Led engineering for Booking.com\'s "Free Taxi" feature — offering complimentary airport transfers with hotel bookings. Shipped the full React frontend and Node.js API stack on AWS ECS. The feature drove a measurable 5–10% increase in daily hotel bookings.',
-    tech: ['React', 'TypeScript', 'Node.js', 'Express', 'Docker', 'AWS ECS'],
-    link: { label: 'Visit Booking.com', href: 'https://booking.com', external: true },
-    github: null,
-    gradient: 'linear-gradient(135deg, #003580 0%, #0071c2 100%)',
-    accentColor: '#00d4ff',
-    highlight: 'Booking.com · 2018–2021',
+      'An MCP server that lets Claude read WhatsApp Desktop\'s local database, so an agent can catch up on chats without being able to act on them.',
+    safety:
+      'Designed against prompt injection: no send capability, network blocked, every read audit-logged, chats can be walled off.',
+    tech: ['MCP', 'Python', 'SQLite'],
+    href: 'https://github.com/erineland/whatsapp-readonly-mcp',
+    gradient: 'linear-gradient(135deg, #04201a 0%, #0b3d2e 50%, #10b981 140%)',
+    accentColor: '#10b981',
   },
   {
-    title: 'Microsoft Invoicing',
-    emoji: '🪟',
+    title: 'imessage-readonly-mcp',
+    emoji: '📱',
     description:
-      'Developed, released and scaled the Microsoft Invoicing app across web, iOS and Android as part of Office 365 for Business Premium — shipped to enterprise customers globally. Built with React, TypeScript and C# using the Cordova cross-platform framework.',
-    tech: ['React', 'TypeScript', 'C#', 'Cordova', 'iOS', 'Android', 'Office 365'],
-    link: { label: 'Microsoft 365', href: 'https://microsoft.com/en-gb/microsoft-365', external: true },
-    github: null,
-    gradient: 'linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%)',
+      'An MCP server that reads iMessage and SMS from the Mac\'s local database for Claude.',
+    safety:
+      'Read-only. Phone numbers are masked and one-time codes redacted before the model sees them. Network blocked, 35 offline tests.',
+    tech: ['MCP', 'Python', 'SQLite'],
+    href: 'https://github.com/erineland/imessage-readonly-mcp',
+    gradient: 'linear-gradient(135deg, #061a2e 0%, #0b2f52 50%, #00d4ff 140%)',
+    accentColor: '#00d4ff',
+  },
+  {
+    title: 'icloud-drive-mcp',
+    emoji: '☁️',
+    description:
+      'Spotlight-backed search and reading of iCloud Drive for Claude, including the text inside PDFs.',
+    safety:
+      'Zero dependencies, so there is nothing to audit but the code itself. Fast search over millions of files without walking the tree.',
+    tech: ['MCP', 'Spotlight', 'JavaScript', 'Python'],
+    href: 'https://github.com/erineland/icloud-drive-mcp',
+    gradient: 'linear-gradient(135deg, #140a2e 0%, #2a1252 50%, #9333ea 140%)',
     accentColor: '#9333ea',
-    highlight: 'Microsoft · 2016–2018',
   },
 ]
 
@@ -80,12 +92,16 @@ function ProjectCard({ project, i }: { project: typeof PROJECTS[0]; i: number })
       >
         <div className={styles.cardTop} style={{ background: project.gradient }}>
           <span className={styles.emoji}>{project.emoji}</span>
-          <span className={styles.highlightBadge}>{project.highlight}</span>
+          <span className={styles.highlightBadge}>Open source</span>
         </div>
 
         <div className={styles.cardBody}>
           <h3 className={styles.title}>{project.title}</h3>
           <p className={styles.desc}>{project.description}</p>
+          <p className={styles.safety}>
+            <span className={styles.safetyLabel}>Safety idea</span>
+            {project.safety}
+          </p>
           <div className={styles.techRow}>
             {project.tech.map(t => (
               <span key={t} className={styles.tech}>{t}</span>
@@ -94,28 +110,18 @@ function ProjectCard({ project, i }: { project: typeof PROJECTS[0]; i: number })
         </div>
 
         <div className={styles.cardFooter}>
-          {project.link && (
-            <a
-              href={project.link.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.linkBtnPrimary}
-              style={{ background: project.accentColor }}
-            >
-              <ExternalIcon /> {project.link.label}
-            </a>
-          )}
+          <a
+            href={project.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.linkBtnPrimary}
+            style={{ background: project.accentColor }}
+          >
+            <GitHubIcon /> View on GitHub
+          </a>
         </div>
       </div>
     </motion.div>
-  )
-}
-
-function ExternalIcon() {
-  return (
-    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-      <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3" />
-    </svg>
   )
 }
 
@@ -131,9 +137,13 @@ export default function Projects() {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
-          <p className="section-label">What I've worked on</p>
-          <h2 className="section-title">Featured Work</h2>
+          <p className="section-label">Safe agents for real life</p>
+          <h2 className="section-title">Projects</h2>
           <div className="section-divider" />
+          <p className={styles.intro}>
+            Pulled out of the Claude Code setup I run every day and made generic. The common thread:
+            give an agent real access, but make the risky paths fail closed.
+          </p>
         </motion.div>
 
         <div className={styles.grid}>
@@ -148,14 +158,14 @@ export default function Projects() {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.5 }}
         >
-          <p>Want to see personal projects and code katas?</p>
+          <p>Earlier work: code katas and side projects from 2014 onwards.</p>
           <a
-            href="https://github.com/erineland"
+            href="https://github.com/erineland?tab=repositories"
             target="_blank"
             rel="noopener noreferrer"
             className={styles.githubLink}
           >
-            <GitHubIcon /> View all repos on GitHub
+            <GitHubIcon /> All repos on GitHub
           </a>
         </motion.div>
       </div>

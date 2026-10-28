@@ -4,6 +4,12 @@ import styles from './Skills.module.css'
 
 const SKILL_GROUPS = [
   {
+    label: 'AI Agent Tooling',
+    icon: '🤖',
+    color: '#ff2d78',
+    skills: ['Claude Code', 'MCP servers', 'Hooks & permission guards', 'Skills', 'Prompt-injection defence', 'Audit logging'],
+  },
+  {
     label: 'Frontend',
     icon: '⚛️',
     color: '#00d4ff',
@@ -12,8 +18,8 @@ const SKILL_GROUPS = [
   {
     label: 'Backend & Platform',
     icon: '⚙️',
-    color: '#ff2d78',
-    skills: ['Node.js', 'Express', 'Java Spring Boot', 'REST APIs', 'GraphQL', 'OAuth2/OIDC', 'MCP (Claude)', 'Vault / Whisper'],
+    color: '#00d4ff',
+    skills: ['Node.js', 'Express', 'Java Spring Boot', 'REST APIs', 'GraphQL', 'OAuth2/OIDC'],
   },
   {
     label: 'Infrastructure & Cloud',

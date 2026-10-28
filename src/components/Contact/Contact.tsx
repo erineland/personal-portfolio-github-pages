@@ -67,8 +67,8 @@ export default function Contact() {
           <p className="section-label" style={{ textAlign: 'center' }}>What's next?</p>
           <h2 className={styles.heading}>Get In Touch</h2>
           <p className={styles.sub}>
-            I'm always open to interesting conversations, collaborations, or new opportunities.
-            Whether you have a question or just want to say hi — my inbox is always open.
+            Happy to talk about safe agent tooling, MCP, or anything in the repos.
+            Email, LinkedIn, or open an issue on GitHub.
           </p>
 
           <motion.a

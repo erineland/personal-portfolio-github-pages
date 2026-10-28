@@ -2,9 +2,17 @@
   background: var(--surface);
 }
 
+.intro {
+  max-width: 640px;
+  margin-bottom: 40px;
+  font-size: 16px;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
 .grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 24px;
 }
 
@@ -75,6 +83,26 @@
   color: var(--text-muted);
   line-height: 1.7;
   flex: 1;
+}
+
+.safety {
+  font-size: 13px;
+  color: var(--text);
+  line-height: 1.6;
+  padding: 10px 12px;
+  border-left: 2px solid var(--accent);
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 0 8px 8px 0;
+}
+
+.safetyLabel {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 4px;
 }
 
 .techRow {
@@ -174,9 +202,6 @@
   transform: translateY(-2px);
 }
 
-@media (max-width: 900px) {
+@media (max-width: 768px) {
   .grid { grid-template-columns: 1fr; }
-}
-@media (min-width: 640px) and (max-width: 900px) {
-  .grid { grid-template-columns: repeat(2, 1fr); }
 }

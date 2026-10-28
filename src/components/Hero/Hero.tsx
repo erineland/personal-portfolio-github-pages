@@ -5,10 +5,10 @@ import styles from './Hero.module.css'
 const HeroScene = lazy(() => import('./HeroScene'))
 
 const ROLES = [
-  'Senior Software Engineer',
-  'React & TypeScript Specialist',
-  'Full-Stack JS/Java Engineer',
-  'Currently @ Apple (ICT4)',
+  'Software Engineer',
+  'Safe AI agent tooling',
+  'Claude Code & MCP',
+  'Currently @ Feeld',
 ]
 
 function Typewriter({ strings }: { strings: string[] }) {
@@ -147,8 +147,8 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.75 }}
         >
-          10+ years building scalable web applications used by millions —
-          driven by a belief that great engineering should make complex things feel effortless.
+          Ten years shipping web products at scale. These days I build AI agent tooling with
+          Claude Code and MCP: real access, with the risky paths failing closed.
         </motion.p>
 
         <motion.div
@@ -167,7 +167,7 @@ export default function Hero() {
           animate={{ opacity: 1 }}
           transition={{ delay: 1.1 }}
         >
-          {['Apple', 'Microsoft', 'Booking.com'].map((c, i) => (
+          {['Feeld', 'Apple', 'Booking.com', 'Microsoft'].map((c, i) => (
             <motion.span
               key={c}
               className={styles.pill}
