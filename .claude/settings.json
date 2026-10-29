@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__claude-in-chrome__get_page_text",
+      "mcp__claude-in-chrome__find",
+      "mcp__claude-in-chrome__tabs_context_mcp",
+      "mcp__claude-in-chrome__read_page",
+      "Bash(dig *)",
+      "Bash(mdls *)",
+      "Bash(npm audit)",
+      "Bash(npm run lint)",
+      "mcp__mobbin__search_sections"
+    ]
+  }
+}
