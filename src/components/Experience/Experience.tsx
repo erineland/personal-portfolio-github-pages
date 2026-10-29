@@ -6,8 +6,8 @@ const JOBS = [
   {
     company: 'Feeld',
     logo: '💜',
-    role: 'Senior Frontend Engineer',
-    period: '2026 – Present',
+    role: 'Senior Web Engineer',
+    period: 'Jun 2026 – Present',
     location: 'London, UK · Remote',
     color: '#ff2d78',
     bullets: [
