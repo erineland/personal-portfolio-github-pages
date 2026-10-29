@@ -61,9 +61,10 @@ function ParticleField() {
   )
 }
 
-export default function HeroScene() {
+export default function HeroScene({ still = false }: { still?: boolean }) {
   return (
-    <Canvas camera={{ position: [0, 0, 5], fov: 55 }}>
+    // 'demand' renders a single frame, so the scene holds still for reduced motion
+    <Canvas camera={{ position: [0, 0, 5], fov: 55 }} frameloop={still ? 'demand' : 'always'}>
       <ambientLight intensity={0.6} />
       <pointLight position={[4, 4, 4]} intensity={1.4} color="#ff2d78" />
       <pointLight position={[-4, -4, 2]} intensity={0.6} color="#9333ea" />

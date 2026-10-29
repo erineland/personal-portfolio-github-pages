@@ -1,3 +1,4 @@
+import { MotionConfig } from 'framer-motion'
 import Navigation from './components/Navigation/Navigation'
 import Hero from './components/Hero/Hero'
 import About from './components/About/About'
@@ -8,7 +9,7 @@ import Contact from './components/Contact/Contact'
 
 export default function App() {
   return (
-    <>
+    <MotionConfig reducedMotion="user">
       <Navigation />
       <main>
         <Hero />
@@ -18,6 +19,6 @@ export default function App() {
         <Skills />
         <Contact />
       </main>
-    </>
+    </MotionConfig>
   )
 }

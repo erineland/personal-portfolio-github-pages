@@ -42,7 +42,7 @@ const JOBS = [
     location: 'Manchester, UK',
     color: '#0071c2',
     bullets: [
-      'Led engineering for the "Free Taxi" project — designing and shipping the airport transfer booking flow that drove a measurable 5–10% increase in accommodation bookings across global markets',
+      'Led engineering for the "Free Taxi" project — designing and shipping the airport transfer booking flow that drove a measurable 5–10% increase in taxi bookings on Booking.com Taxi in the markets it ran in',
       'Mentored junior developers on React component architecture and coordinated cross-team delivery across frontend and API teams',
       'Served as technical point of contact for dependent teams consuming our Node.js APIs — defining contracts, supporting integration, and troubleshooting production issues',
       'Collaborated with product and data teams to prioritise features based on A/B testing outcomes and booking conversion metrics',

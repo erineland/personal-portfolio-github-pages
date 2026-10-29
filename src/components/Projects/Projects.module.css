@@ -85,6 +85,54 @@
   flex: 1;
 }
 
+.stops {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px 14px;
+  background: rgba(0, 0, 0, 0.28);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+}
+
+.stopsLabel {
+  font-size: 10px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.attempt {
+  font-family: inherit;
+  color: var(--text);
+  overflow-wrap: anywhere;
+}
+
+.verdictRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.verdict {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: #fff;
+  background: var(--accent);
+}
+
+.result {
+  font-family: inherit;
+  color: var(--text-muted);
+}
+
 .safety {
   font-size: 13px;
   color: var(--text);

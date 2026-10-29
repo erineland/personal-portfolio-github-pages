@@ -26,6 +26,7 @@
 .content {
   position: relative;
   z-index: 2;
+  flex: 0 1 600px;
   max-width: 680px;
   margin-left: max(calc((100vw - 1100px) / 2), 0px);
 }
@@ -168,8 +169,25 @@
   50% { opacity: 1; transform: scaleY(1.1); }
 }
 
+.demo {
+  position: relative;
+  z-index: 2;
+  flex: 0 1 460px;
+  margin-left: auto;
+  margin-right: max(calc((100vw - 1100px) / 2), 0px);
+}
+
+@media (max-width: 900px) {
+  .hero { flex-direction: column; align-items: stretch; }
+  .demo { margin: 0 0 120px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scrollLine { animation: none; }
+}
+
 @media (max-width: 768px) {
   .hero { padding: 0 20px; }
-  .content { margin-left: 0; padding-top: 80px; padding-bottom: 80px; }
+  .content { margin-left: 0; padding-top: 100px; padding-bottom: 40px; flex: none; }
   .name { letter-spacing: -1.5px; }
 }

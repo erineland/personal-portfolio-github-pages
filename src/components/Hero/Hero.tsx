@@ -1,5 +1,6 @@
 import { lazy, Suspense, useEffect, useRef, useState } from 'react'
-import { motion } from 'framer-motion'
+import { motion, useReducedMotion } from 'framer-motion'
+import AgentDemo from './AgentDemo'
 import styles from './Hero.module.css'
 
 const HeroScene = lazy(() => import('./HeroScene'))
@@ -15,8 +16,10 @@ function Typewriter({ strings }: { strings: string[] }) {
   const [idx, setIdx] = useState(0)
   const [displayed, setDisplayed] = useState('')
   const [deleting, setDeleting] = useState(false)
+  const reduceMotion = useReducedMotion()
 
   useEffect(() => {
+    if (reduceMotion) return
     const full = strings[idx]
     let timeout: ReturnType<typeof setTimeout>
 
@@ -31,18 +34,27 @@ function Typewriter({ strings }: { strings: string[] }) {
       setIdx(i => (i + 1) % strings.length)
     }
     return () => clearTimeout(timeout)
-  }, [displayed, deleting, idx, strings])
+  }, [displayed, deleting, idx, strings, reduceMotion])
 
   return (
     <span className={styles.typewriter}>
-      {displayed}
-      <span className={styles.cursor} />
+      {reduceMotion ? strings[0] : (
+        // One span per character, shown or hidden, so the text nodes never change.
+        // Reading-aid extensions rewrite text nodes and garble text React edits in place.
+        <span key={idx}>
+          {[...strings[idx]].map((ch, i) => (
+            <span key={i} hidden={i >= displayed.length}>{ch}</span>
+          ))}
+        </span>
+      )}
+      {!reduceMotion && <span className={styles.cursor} />}
     </span>
   )
 }
 
 export default function Hero() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
+  const reduceMotion = useReducedMotion()
 
   useEffect(() => {
     const canvas = canvasRef.current
@@ -94,14 +106,14 @@ export default function Hero() {
           }
         }
       }
-      animId = requestAnimationFrame(draw)
+      if (!reduceMotion) animId = requestAnimationFrame(draw)
     }
     draw()
 
-    const onResize = () => { canvas.width = window.innerWidth; canvas.height = window.innerHeight }
+    const onResize = () => { canvas.width = window.innerWidth; canvas.height = window.innerHeight; if (reduceMotion) draw() }
     window.addEventListener('resize', onResize)
     return () => { cancelAnimationFrame(animId); window.removeEventListener('resize', onResize) }
-  }, [])
+  }, [reduceMotion])
 
   return (
     <section id="hero" className={styles.hero}>
@@ -109,7 +121,7 @@ export default function Hero() {
 
       <div className={styles.threeContainer}>
         <Suspense fallback={null}>
-          <HeroScene />
+          <HeroScene still={!!reduceMotion} />
         </Suspense>
       </div>
 
@@ -180,6 +192,15 @@ export default function Hero() {
           ))}
         </motion.div>
       </div>
+
+      <motion.div
+        className={styles.demo}
+        initial={{ opacity: 0, y: 24 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7, delay: 1.0 }}
+      >
+        <AgentDemo />
+      </motion.div>
 
       <motion.a
         href="#about"
