@@ -89,6 +89,18 @@
   color: var(--text-muted);
 }
 
+.photoCredit a {
+  color: var(--text-muted);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-color: rgba(255, 45, 120, 0.5);
+  transition: color 0.2s;
+}
+
+.photoCredit a:hover {
+  color: var(--pink);
+}
+
 .photoFrame {
   position: relative;
   width: 280px;

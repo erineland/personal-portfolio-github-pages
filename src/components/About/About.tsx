@@ -88,7 +88,10 @@ export default function About() {
               />
               <div className={styles.photoBorder} />
             </div>
-            <p className={styles.photoCredit}>Photo: Quinn Kane</p>
+            <p className={styles.photoCredit}>
+              Photo:{' '}
+              <a href="https://quinnkane.co.uk" target="_blank" rel="noopener noreferrer">Quinn Kane</a>
+            </p>
             <div className={styles.photoDecor1} />
             <div className={styles.photoDecor2} />
           </motion.div>
