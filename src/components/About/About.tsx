@@ -49,6 +49,12 @@ export default function About() {
               mail, calendar, budgeting checks, smart home and admin, and it's built so that it
               can't do the dangerous things by accident.
             </p>
+            <p>
+              Why safe agents? Because I hand mine things that matter to me: money, mail, my
+              calendar. I want to trust it the way I'd trust a careful colleague. It does the
+              work, and it stops and asks before anything it can't undo.
+            </p>
+            <p className={styles.signoff}>— Erin</p>
             <p>How I like to build:</p>
 
             <div className={styles.facts}>
@@ -82,6 +88,7 @@ export default function About() {
               />
               <div className={styles.photoBorder} />
             </div>
+            <p className={styles.photoCredit}>Photo: Quinn Kane</p>
             <div className={styles.photoDecor1} />
             <div className={styles.photoDecor2} />
           </motion.div>

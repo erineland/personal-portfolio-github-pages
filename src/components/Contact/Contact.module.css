@@ -103,14 +103,15 @@
 }
 
 .footer {
-  text-align: center;
-  padding: 28px 24px;
+  padding: 40px 24px 0;
   border-top: 1px solid var(--border);
   font-size: 13px;
   color: var(--text-muted);
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  align-items: center;
+  gap: 14px;
+  overflow: hidden;
 }
 
 .footer strong {
@@ -118,7 +119,42 @@
   font-weight: 600;
 }
 
-.footerSub {
-  color: var(--text-dim);
+.footerLinks {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px 22px;
+  font-family: var(--font-mono);
   font-size: 12px;
+}
+
+.footerLinks a {
+  color: var(--text-muted);
+  transition: color 0.2s;
+}
+
+.footerLinks a:hover {
+  color: var(--pink);
+}
+
+.footerMeta {
+  font-size: 12px;
+  color: var(--text-dim);
+  text-align: center;
+}
+
+.wordmark {
+  margin-top: 8px;
+  font-size: clamp(56px, 15vw, 210px);
+  font-weight: 900;
+  line-height: 0.8;
+  letter-spacing: -0.05em;
+  white-space: nowrap;
+  background: linear-gradient(180deg, rgba(255, 45, 120, 0.55) 0%, rgba(147, 51, 234, 0.15) 75%, transparent 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  user-select: none;
+  /* Let the bottom of the letters sink off the page, like Retool's footer */
+  margin-bottom: -0.12em;
 }

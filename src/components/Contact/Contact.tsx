@@ -105,8 +105,17 @@ export default function Contact() {
       </div>
 
       <footer className={styles.footer}>
-        <p>Designed & built by <strong>Erin Eland</strong> · React + TypeScript + Three.js</p>
-        <p className={styles.footerSub}>© {new Date().getFullYear()} erineland.com</p>
+        <nav className={styles.footerLinks} aria-label="Elsewhere">
+          <a href="https://github.com/erineland" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a href="https://www.linkedin.com/in/erineland/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a href="mailto:erin@erineland.com">Email</a>
+          <a href="https://github.com/erineland/claude-code-guardrails" target="_blank" rel="noopener noreferrer">Guardrails</a>
+          <a href="https://github.com/erineland/personal-portfolio-github-pages" target="_blank" rel="noopener noreferrer">Site source</a>
+        </nav>
+        <p className={styles.footerMeta}>
+          Designed & built by <strong>Erin Eland</strong> · React + TypeScript + Three.js · © {new Date().getFullYear()}
+        </p>
+        <p className={styles.wordmark} aria-hidden="true">Erin Eland</p>
       </footer>
     </section>
   )
