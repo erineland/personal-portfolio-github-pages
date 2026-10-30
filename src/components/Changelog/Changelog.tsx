@@ -7,6 +7,13 @@ const ENTRIES = [
   {
     date: 'Oct 2026',
     tag: 'Open source',
+    title: 'eventkit-reminders-mcp',
+    text: 'Apple Reminders for Claude in native Swift. Reads ~4,400 reminders in under a second. Read-only by default, dry-run batches, every write logged.',
+    href: 'https://github.com/erineland/eventkit-reminders-mcp',
+  },
+  {
+    date: 'Oct 2026',
+    tag: 'Open source',
     title: 'claude-code-guardrails',
     text: 'PreToolUse hooks that turn "always ask first" from an instruction into a mechanic. Deleting mail is denied outright.',
     href: 'https://github.com/erineland/claude-code-guardrails',

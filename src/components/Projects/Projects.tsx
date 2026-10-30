@@ -56,6 +56,19 @@ const PROJECTS = [
     gradient: 'linear-gradient(135deg, #140a2e 0%, #2a1252 50%, #9333ea 140%)',
     accentColor: '#9333ea',
   },
+  {
+    title: 'eventkit-reminders-mcp',
+    emoji: '✅',
+    description:
+      'A native Swift MCP server for Apple Reminders, built on EventKit. Reads a ~4,400-reminder store in under a second, where the AppleScript server it replaced timed out after 120 s, and moves reminders between lists.',
+    safety:
+      'Read-only by default: write tools aren\'t even listed until writes are turned on. Batches are dry runs and all-or-nothing, every write is audit-logged before → after, and a test proves the binary imports no networking APIs.',
+    tech: ['Swift', 'EventKit', 'MCP', 'macOS'],
+    stops: { attempt: 'reminders_batch(move 300 items)', verdict: 'DRY RUN', result: 'plan shown, nothing changed' },
+    href: 'https://github.com/erineland/eventkit-reminders-mcp',
+    gradient: 'linear-gradient(135deg, #2a1a04 0%, #4a2e08 50%, #f59e0b 140%)',
+    accentColor: '#f59e0b',
+  },
 ]
 
 function ProjectCard({ project, i }: { project: typeof PROJECTS[0]; i: number }) {
