@@ -11,10 +11,13 @@ const JOBS = [
     location: 'London, UK · Remote',
     color: '#ff2d78',
     bullets: [
-      'Building the Feeld website in React and TypeScript',
-      'Working beyond the frontend where it helps: Node.js upgrades, CI and security fixes',
+      'Sole engineer owning the feeld.co web platform and its web-to-app funnel end to end, from infrastructure (AWS, Cloudflare, CI) to the Next.js and Storyblok front end',
+      'Migrated the platform to Next.js 16 and React 19 with zero production regressions, and handled the Node.js upgrades',
+      'Security: cut open vulnerability alerts from 126 to 4',
+      'Performance: cut homepage media weight by 84%',
+      'AI Champion for Engineering, shaping how Feeld\'s engineers work with AI agents',
     ],
-    tech: ['React', 'TypeScript', 'Node.js', 'AWS'],
+    tech: ['Node.js', 'AWS', 'Cloudflare', 'Next.js', 'TypeScript', 'Storyblok', 'React'],
   },
   {
     company: 'Apple',

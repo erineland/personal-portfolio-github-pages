@@ -36,7 +36,7 @@ const ENTRIES = [
     date: 'Jun 2026',
     tag: 'Role',
     title: 'Joined Feeld',
-    text: 'Senior Web Engineer, building the Feeld website in React and TypeScript.',
+    text: 'Senior Web Engineer, owning the feeld.co web platform end to end: AWS, Cloudflare, Next.js and Node.js.',
     href: '#experience',
   },
 ]
